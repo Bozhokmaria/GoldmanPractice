@@ -50,7 +50,7 @@ public class Main extends JPanel {
     void moveRandom() throws Exception {
         int random = (int)(Math.random()*(4-1)+1);
         move(random);
-        }
+    }
 
 // Move only one quadrant
 
@@ -69,7 +69,7 @@ public class Main extends JPanel {
             x++;
         }
 
-        if (data[y][x] == "B") {
+        if (data[y][x] == "B"|| data[y][x] == "GG" || data[y][x] == "M" || data[y][x] == "E") {
             if (direction == 1) {
                 y++;
             } else if (direction == 2) {
@@ -79,14 +79,14 @@ public class Main extends JPanel {
             } else if (direction == 4) {
                 x--;
             }
-            System.out.println("Cant move - its a brick");
+            System.out.println("Cant move");
         } else {
             countSteps--;
         }
 
-            data[y][x] = "P";
-            drawTable();
-            Thread.sleep(1000);
+        data[y][x] = "P";
+        drawTable();
+        Thread.sleep(1000);
     }
 
 
@@ -96,19 +96,19 @@ public class Main extends JPanel {
         Scanner scanner = new Scanner(System.in);
         System.out.println("1- up, 2 -down, 3 - left, 4 - right, 5- random, 0 - stop");
         int direction;
-               for (; ; ) {
-                   direction = scanner.nextInt();
-                   if (y>0&&y<11&&x>0&&x<9) {
+        for (; ; ) {
+            direction = scanner.nextInt();
+            if (y>0&&y<11&&x>0&&x<9) {
 
-                       if(direction==5) moveRandom();
+                if(direction==5) moveRandom();
 
-                       move(direction);
-                   } else System.out.println("End of the map, cant move");
-                   if (direction == 0) {
-                       break;
-                   }
-               }
-               //        while (y > 0) {
+                move(direction);
+            } else System.out.println("End of the map, cant move");
+            if (direction == 0) {
+                break;
+            }
+        }
+        //        while (y > 0) {
 //           moveUp();
 //        }
 //
