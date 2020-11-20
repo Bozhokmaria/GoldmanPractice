@@ -69,7 +69,7 @@ public class Main extends JPanel {
             x++;
         }
 
-        if (data[y][x] == "B"|| data[y][x] == "GG" || data[y][x] == "M" || data[y][x] == "E") {
+        if (data[y][x] == "B" || data[y][x] == "GG" || data[y][x] == "M" || data[y][x] == "E" ) {
             if (direction == 1) {
                 y++;
             } else if (direction == 2) {
@@ -100,9 +100,9 @@ public class Main extends JPanel {
             direction = scanner.nextInt();
             if (y>0&&y<11&&x>0&&x<9) {
 
-                if(direction==5) moveRandom();
-
-                move(direction);
+                if(direction==5) {moveRandom();
+                } else { move(direction);}
+                
             } else System.out.println("End of the map, cant move");
             if (direction == 0) {
                 break;
